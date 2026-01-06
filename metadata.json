@@ -1,0 +1,7 @@
+{
+  "name": "Copy of AuraFit AI",
+  "description": "A premium, 3D glassmorphic fitness web app powered by Gemini AI for personalized workout and diet planning.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
