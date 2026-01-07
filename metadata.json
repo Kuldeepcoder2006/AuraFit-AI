@@ -1,6 +1,6 @@
 {
-  "name": "Copy of AuraFit AI",
-  "description": "A premium, 3D glassmorphic fitness web app powered by Gemini AI for personalized workout and diet planning.",
+  "name": "AuraFit AI",
+  "description": "Installable PWA fitness architect with 3D glassmorphic design and Gemini AI integration.",
   "requestFramePermissions": [
     "camera"
   ]
