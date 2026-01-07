@@ -1,7 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { UserProfile, DietPlan, Meal } from '../types';
-import { Send, Bot, ChefHat, Sparkles, Utensils, Zap, Coffee, ChevronDown, ChevronUp, Save, Bookmark, Trash2, Scale, Target, ShoppingBag, TrendingDown, ArrowDownRight } from 'lucide-react';
+import { UserProfile, DietPlan } from '../types';
+import { Send, Bot, ChefHat, Sparkles, Utensils, Zap, Coffee, ChevronDown, Scale, Target, ShoppingBag, TrendingDown, ArrowDownRight, Save, Bookmark, Trash2 } from 'lucide-react';
 import { getCoachAdvice, generateDietPlan } from '../services/geminiService';
 
 interface AICoachProps {
@@ -39,8 +38,8 @@ const AICoach: React.FC<AICoachProps> = ({ profile, onUpdateProfile }) => {
     setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
     setLoading(true);
     try {
-      const response = await getCoachAdvice(userMsg, profile);
-      setMessages(prev => [...prev, { role: 'bot', text: response }]);
+      const responseText = await getCoachAdvice(userMsg, profile);
+      setMessages(prev => [...prev, { role: 'bot', text: responseText }]);
     } catch (e) {
       setMessages(prev => [...prev, { role: 'bot', text: "I'm having a bit of a workout fatigue. Let's try again in a moment!" }]);
     } finally {

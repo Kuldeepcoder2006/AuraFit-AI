@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { UserProfile } from "../types";
 
@@ -39,7 +38,7 @@ export const generateChatBasedWorkout = async (userInput: string, profile: UserP
       }
     }
   });
-  return JSON.parse(response.text);
+  return JSON.parse(response.text || "[]");
 };
 
 export const generateWorkoutPlan = async (profile: UserProfile) => {
@@ -72,7 +71,7 @@ export const generateWorkoutPlan = async (profile: UserProfile) => {
       }
     }
   });
-  return JSON.parse(response.text);
+  return JSON.parse(response.text || "{}");
 };
 
 export const generateDietPlan = async (
@@ -141,7 +140,7 @@ export const generateDietPlan = async (
       }
     }
   });
-  return JSON.parse(response.text);
+  return JSON.parse(response.text || "{}");
 };
 
 export const getCoachAdvice = async (message: string, profile: UserProfile) => {
@@ -152,5 +151,5 @@ export const getCoachAdvice = async (message: string, profile: UserProfile) => {
       systemInstruction: `You are a world-class AI Fitness Coach named Aura. The user is ${profile.name}, a ${profile.experienceLevel} fitness enthusiast. Be encouraging, use 3D/modern language concepts, and provide scientifically accurate advice for ${profile.goal}.`,
     }
   });
-  return response.text;
+  return response.text || "I'm sorry, I couldn't generate a response. Please try again.";
 };
